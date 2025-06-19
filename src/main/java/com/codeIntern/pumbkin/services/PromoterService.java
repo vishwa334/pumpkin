@@ -19,6 +19,7 @@ public class PromoterService {
         this.promoterRepository = promoterRepository;
     }
 
+    // Save a promoter along with its associations //
     public Promoter savePromoter(Promoter promoter) {
 
         // Link child references
@@ -36,19 +37,23 @@ public class PromoterService {
 //                sr.setPromoter(promoter); // 🔗 Link back to parent
 //            }
 //        }
+
+        //Link executive associations to the promoter (parent)  //
+
         if (promoter.getExecutiveAssociations() != null) {
             for (ExecutiveAssociation ea : promoter.getExecutiveAssociations()) {
                 ea.setPromoter(promoter);
             }
         }
-
+        //  Save the promoter along with the linked child entities  //
         return promoterRepository.save(promoter);
     }
-
+//  Getting all the promoters from the databases //
     public List<Promoter> getAllPromoters() {
         return promoterRepository.findAll();
     }
 
+//getting promoter  by id //
     public Promoter getPromoterById(Long id) {
         return promoterRepository.findById(id).orElse(null);
     }

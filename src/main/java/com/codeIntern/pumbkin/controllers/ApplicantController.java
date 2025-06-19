@@ -28,7 +28,7 @@ public class ApplicantController {
         this.applicantService = applicantService;
         this.storageService = storageService;
     }
-
+//  This is for creating new Applicant //
     @PostMapping
     public Applicant create(@RequestBody Applicant applicant) {
         return applicantService.save(applicant);
