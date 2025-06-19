@@ -8,9 +8,10 @@ import java.util.List;
 import java.util.Optional;
 
 
-// Amit
+// Amit  //
 @Service
 public class ApplicantService {
+    //  In this service only business logic for get Request and  post  request further , we can added for delete, put and patch request //
     private final ApplicantRepository repo;
     public ApplicantService(ApplicantRepository repo) { this.repo = repo; }
     public Applicant save(Applicant a) { return repo.save(a); }

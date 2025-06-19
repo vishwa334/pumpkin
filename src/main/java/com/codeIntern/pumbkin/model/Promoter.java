@@ -39,12 +39,17 @@ public class Promoter {
      @JsonManagedReference
      private List<ExecutiveAssociation> executiveAssociations;
 
+     public    Promoter(){
+     }
 
+     public List<ExecutiveAssociation> getExecutiveAssociations() {
+         return executiveAssociations;
+     }
 
-
-
-    public    Promoter(){
-    }
+     // Optional: Setter too
+     public void setExecutiveAssociations(List<ExecutiveAssociation> executiveAssociations) {
+         this.executiveAssociations = executiveAssociations;
+     }
     public Long getId() {
         return id;
     }
@@ -183,4 +188,6 @@ public class Promoter {
                 ", socialReferences=" + socialReferences +
                 '}';
     }
-}
+
+
+ }

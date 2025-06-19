@@ -3,14 +3,9 @@ package com.codeIntern.pumbkin.model;
 import jakarta.persistence.*;
 
 import java.util.Arrays;
-
-
-
-//  Amit
-
+// Amit Kumar//
 @Entity
 public class Applicant {
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
 private  Long id;

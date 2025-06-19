@@ -14,6 +14,7 @@ import java.util.List;
 public class PromoterService {
     private final PromoterRepository promoterRepository;
 
+
     public PromoterService(PromoterRepository promoterRepository) {
         this.promoterRepository = promoterRepository;
     }
@@ -35,8 +36,6 @@ public class PromoterService {
 //                sr.setPromoter(promoter); // 🔗 Link back to parent
 //            }
 //        }
-
-
         if (promoter.getExecutiveAssociations() != null) {
             for (ExecutiveAssociation ea : promoter.getExecutiveAssociations()) {
                 ea.setPromoter(promoter);
