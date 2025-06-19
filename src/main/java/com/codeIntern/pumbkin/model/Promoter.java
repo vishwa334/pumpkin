@@ -35,6 +35,11 @@ public class Promoter {
     private List<SocialReference> socialReferences;
 
 
+     @OneToMany(mappedBy = "promoter", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.EAGER)
+     @JsonManagedReference
+     private List<ExecutiveAssociation> executiveAssociations;
+
+
 
 
 

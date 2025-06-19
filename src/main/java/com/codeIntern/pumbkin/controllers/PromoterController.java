@@ -34,5 +34,6 @@ public class PromoterController {
     @GetMapping("/{id}")
     public ResponseEntity<Promoter> getPromoterById(@PathVariable Long id) {
         return ResponseEntity.ok(promoterService.getPromoterById(id));
+
     }
 }
