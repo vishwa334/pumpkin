@@ -5,6 +5,8 @@ import org.springframework.web.multipart.MultipartFile;
 import java.io.IOException;
 
 //Amit  Kumar //
+
+// This service uploading the file and save to the databases //
 @Service
 public class FileUploadService {
     public byte[] store(MultipartFile file) throws IOException {
