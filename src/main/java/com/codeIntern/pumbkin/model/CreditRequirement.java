@@ -1,3 +1,4 @@
+//Nitish kumar
 package com.codeIntern.pumbkin.model;
 
 import jakarta.persistence.CascadeType;
@@ -13,91 +14,62 @@ import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
 
+//Model class of CreditRequirement that store data .This model is map all data in one single unit and create new user.
+//POJO class
 @Entity
-@Table
-
 public class CreditRequirement {
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	 private Long id;
 
-	    private String loanPurpose;
-	    private String loanDuration;
-	    private Double loanAmount;
-	    private String fundRequiredDate;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Integer id;
 
-	    @OneToOne(cascade = CascadeType.ALL)
-	    private Collateral collateral;
+//    It map the EndUseDetail POJO class
+//    using one to one relation
+    @OneToOne(mappedBy = "creditRequirement", cascade = CascadeType.ALL)
+    private EndUseDetail endUseDetail;
 
-	    @Enumerated(EnumType.STRING)
-	    private LoanFormat loanFormat;
-	    
-	    @Enumerated(EnumType.STRING)
-	    private EndUserFormat endUserFormat;
+//    It map the LoanFormatChoice POJO class
+//    using one to one relation
+    @OneToOne(mappedBy = "creditRequirement", cascade = CascadeType.ALL)
+    private LoanFormatChoice loanFormatChoice;
 
-		public String getLoanPurpose() {
-			return loanPurpose;
-		}
+//    It map the Collateral POJO class
+//    using one to one relation
+    @OneToOne(mappedBy = "creditRequirement", cascade = CascadeType.ALL)
+    private Collateral collateral;
 
-		public void setLoanPurpose(String loanPurpose) {
-			this.loanPurpose = loanPurpose;
-		}
+//    Getter and Setter
+	public Integer getId() {
+		return id;
+	}
 
-		public String getLoanDuration() {
-			return loanDuration;
-		}
+	public void setId(Integer id) {
+		this.id = id;
+	}
 
-		public void setLoanDuration(String loanDuration) {
-			this.loanDuration = loanDuration;
-		}
+	public EndUseDetail getLoanDetails() {
+		return endUseDetail;
+	}
 
-		public Double getLoanAmount() {
-			return loanAmount;
-		}
+	public void setLoanDetails(EndUseDetail endUseDetail) {
+		this.endUseDetail = endUseDetail;
+	}
 
-		public void setLoanAmount(Double loanAmount) {
-			this.loanAmount = loanAmount;
-		}
+	public LoanFormatChoice getLoanFormatChoice() {
+		return loanFormatChoice;
+	}
 
-		public String getFundRequiredDate() {
-			return fundRequiredDate;
-		}
+	public void setLoanFormatChoice(LoanFormatChoice loanFormatChoice) {
+		this.loanFormatChoice = loanFormatChoice;
+	}
 
-		public void setFundRequiredDate(String fundRequiredDate) {
-			this.fundRequiredDate = fundRequiredDate;
-		}
+	public Collateral getCollateral() {
+		return collateral;
+	}
 
-		public Collateral getCollateral() {
-			return collateral;
-		}
-
-		public void setCollateral(Collateral collateral) {
-			this.collateral = collateral;
-		}
-
-		public LoanFormat getLoanFormat() {
-			return loanFormat;
-		}
-
-		public void setLoanFormat(LoanFormat loanFormat) {
-			this.loanFormat = loanFormat;
-		}
-
-		public EndUserFormat getEndUserFormat() {
-			return endUserFormat;
-		}
-
-		public void setEndUserFormat(EndUserFormat endUserFormat) {
-			this.endUserFormat = endUserFormat;
-		}
-
-		@Override
-		public String toString() {
-			return "CreditRequirement [id=" + id + ", loanPurpose=" + loanPurpose + ", loanDuration=" + loanDuration
-					+ ", loanAmount=" + loanAmount + ", fundRequiredDate=" + fundRequiredDate + ", collateral="
-					+ collateral + ", loanFormat=" + loanFormat + ", endUserFormat=" + endUserFormat + "]";
-		}
-	    
-		
-	    
+	public void setCollateral(Collateral collateral) {
+		this.collateral = collateral;
+	}
+    
+    
 }
