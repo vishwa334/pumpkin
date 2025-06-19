@@ -1,0 +1,12 @@
+package com.codeIntern.pumbkin.model;
+
+public enum EndUserFormat {
+	 ASSET_PURCHASE,
+	    STARTING_NEW_BUSINESS,
+	    BUSINESS_EXPANSION,
+	    WORKING_CAPITAL,
+	    MACHINERY_EQUIPMENT,
+	    REPAYMENT_OF_OTHER_LOANS,
+	    MANAGING_CASH_FLOWS,
+	    MANAGING_SEASON_BUSINESS
+}
