@@ -9,7 +9,8 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 
-// Amit
+// Amit  //
+
 @RestController
 @RequestMapping("/api/promoters")
 public class PromoterController {

@@ -1,6 +1,9 @@
 package com.codeIntern.pumbkin.model;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.Pattern;
+import jakarta.validation.constraints.Size;
 
 import java.util.Arrays;
 // Amit Kumar//
@@ -9,24 +12,69 @@ public class Applicant {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
 private  Long id;
+
+    @NotBlank(message = "GSTIN is required")
+    @Pattern(regexp = "\\d{2}[A-Z]{5}\\d{4}[A-Z]{1}[1-9A-Z]{1}Z[0-9A-Z]{1}", message = "Invalid GSTIN format")
     private String gstin;
+
+
+    @NotBlank(message = "GST Type is required")
     private String gstType;
+
+    @NotBlank(message = "Name is required")
     private String name;
+
+    @NotBlank(message = "Type is required")
     private String type;
+
+
+    @NotBlank(message = "Sector is required")
     private String sector;
+
+    @NotBlank(message = "Industry is required")
     private String industry;
+
+    @NotBlank(message = "Date of birth is required")
+    @Pattern(regexp = "\\d{4}-\\d{2}-\\d{2}", message = "DOB must be in format YYYY-MM-DD")
     private String dob;
+
+    @NotBlank(message = "PAN number is required")
+    @Pattern(regexp = "[A-Z]{5}[0-9]{4}[A-Z]{1}", message = "Invalid PAN format")
     private String panNo;
+
+
+    @Pattern(regexp = "\\d{12}", message = "MSME number must be 12 digits")
     private String msmeNo;
+
+    @NotBlank(message = "Address is required")
     private String address;
+
+
+    @NotBlank(message = "City is required")
     private String city;
+
+    @NotBlank(message = "State is required")
     private String state;
+
+
+    @NotBlank(message = "ZIP is required")
+    @Pattern(regexp = "\\d{6}", message = "ZIP code must be 6 digits")
     private String zip;
+
+    @NotBlank(message = "Country is required")
     private String country;
+
+    @Pattern(regexp = "\\d{12}", message = "Aadhar number must be 12 digits")
     private String aadharNo;
 
+    @Size(max = 100, message = "PAN file name too long")
     private String panFileName;
+
+
+    @Size(max = 100, message = "Aadhar file name too long")
     private String aadharFileName;
+
+    @Size(max = 100, message = "MSME file name too long")
     private String msmeFileName;
 
     @Lob

@@ -3,6 +3,7 @@ package com.codeIntern.pumbkin.model;
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
+import jakarta.validation.constraints.*;
 
 import java.util.List;
 
@@ -13,16 +14,36 @@ public class Promoter {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+
+     @NotBlank(message = "Name is required")
     private String name;
+
+     @NotBlank(message = "Designation is required")
     private String designation;
+
+     @Min(value = 0, message = "Shareholding must be non-negative")
+     @Max(value = 100, message = "Shareholding cannot exceed 100%")
     private Double shareholding;
+
+     @NotNull(message = "Date of birth is required")
     private String dob;
+
+     @Pattern(regexp = "\\d{12}", message = "Aadhar must be 12 digits")
     private String aadhar;
+
+     @Min(value = 18, message = "Age must be at least 18")
     private Integer age;
+
+
+     @Pattern(regexp = "[A-Z]{5}[0-9]{4}[A-Z]", message = "Invalid PAN format")
     private String pan;
+
+     @NotBlank(message = "Address is required")
     private String address;
+     @Min(value = 0, message = "Years in address must be non-negative")
     private Integer yearsInAddress;
-    private String din;
+     private String din;
+
     private Boolean politicallyExposed;
 
 //    @OneToMany(mappedBy = "promoter", cascade = CascadeType.ALL, orphanRemoval = true)
